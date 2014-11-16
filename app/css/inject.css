@@ -1,0 +1,45 @@
+#APP_PREFIX_CLASS_CONTAINER {
+	width: 400px;
+	height: 460px;
+	position: fixed;
+	bottom: -1px;
+	right: 20px;
+	display: block;
+	background: rgb(252, 252, 252);
+	border: 1px solid rgb(200, 200, 200);
+	z-index: 100;
+}
+
+#APP_PREFIX_CLASS_CONTAINER iframe {
+	border: 0;
+}
+
+#APP_PREFIX_CLASS_CONTAINER header {
+	display: block;
+	height: 40px;
+	width: 100%;
+	position: absolute;
+	top: -40px;
+	left: -1px;
+	background: rgb(231, 231, 231);
+	border: 1px solid rgb(194, 192, 192);
+}
+
+
+#APP_PREFIX_CLASS_CONTAINER header span{
+	display: block;
+	float: right;
+	margin: 10px;
+	width: 20px;
+	height: 20px;
+	background: rgb(207, 205, 205);
+	cursor: pointer;
+}
+#APP_PREFIX_CLASS_CONTAINER header span:before{
+	content: "x";
+	line-height: 19px;
+	font-weight: bold;
+	color: gray;
+	font-family: sans-serif;
+	font-size: 17px;
+}
