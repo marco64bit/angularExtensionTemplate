@@ -9,10 +9,10 @@ angularExtensionTemplate
   <li>Jquery 2.0</li>
 </ul>
 </li>
-<li>injected iframe with application Angular app iside
+<li>injected iframe with Angular app inside
 <ul>
   <li>Bootstrap 3.0</li>
-  <li><strong>Angular PostMEssage service: </strong> allow to ajax requests through the background page with asyncronous callback to angular app</li>
+  <li><strong>Angular PostMEssage service: </strong> allow to ajax requests through the background page with asyncronous callback to Angular app</li>
   <li>Example controller and data binding</li>
 </ul>
 </li>
