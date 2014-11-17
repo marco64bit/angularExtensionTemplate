@@ -1,5 +1,6 @@
 angularExtensionTemplate
 ========================
+Chrome extension template with angular inside
 
 <h3>Content script</h3>
 
