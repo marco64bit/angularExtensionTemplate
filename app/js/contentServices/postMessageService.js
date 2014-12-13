@@ -20,12 +20,18 @@ app.service('PostMessageService', function () {
 				  	if (response.successId && response.status == "success") {
 				  		if(response.successId == self.successId) {
 		   					//console.log(response.successId)
+		   					try {
+		   						response.response = JSON.parse(response.response)
+		   					}catch(e){}
 				  			callbackSuccess(response.response);
 				  		}
 				  	}
 				  	else if(response.errorId && response.status == "error") {
 				  		if(response.errorId ==  self.errorId) {
 				  			//console.log(response.errorId)
+				  			try {
+		   						response.response = JSON.parse(response.response)
+		   					}catch(e){}
 				  			callbackError(response.response);
 				  		}
 				  	}
@@ -63,5 +69,24 @@ app.service('PostMessageService', function () {
 
    		return new ListenerResponse(successId, errorId)
    	}
+
+   	this.sendGesture = function(gestureName, opt) {
+   		this.port.postMessage({
+			"gesture": gestureName,
+			"options": opt
+		});
+   	}
+   	var self = this;
+   	this.gesture = {
+		collapseCompose: function() {
+			self.sendGesture("collapseCompose");
+		},
+		closeCompose: function() {
+			self.sendGesture("closeCompose");
+		},
+		setTitle: function(title) {
+			self.sendGesture("setTitle", title);
+		},
+	}
 
 });

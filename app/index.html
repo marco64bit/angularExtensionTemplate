@@ -13,8 +13,16 @@
 					{{item}}
 				</li>
 			</ul>
-			<button class="btn btn-success" ng-click="click()">Click</button>
 			{{index}}
+			<button class="btn btn-success" ng-click="click()">Click</button>
+			<h3> gestures </h3>
+			<input ng-model="title">
+			<div class="btn-group">
+				<button class="btn btn-default" ng-click="setTitleCompose(title)">set title</button>
+				<button class="btn btn-default" ng-click="closeCompose()">close compose</button>
+				<button class="btn btn-default" ng-click="collapseCompose()">collapse compose</button>
+				<button class="btn btn-default" ng-click="changeHeaderColor()">header red</button>
+			</div>
 		</div>
 	</div>
 

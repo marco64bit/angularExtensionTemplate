@@ -31,4 +31,16 @@ app.controller('MainCtrl',  ["$scope", "PostMessageService", function($scope, Po
 	function(data){
 		console.log("---------> ", data)
 	});
+
+	$scope.closeCompose = function() {
+		PostMessageService.gesture.closeCompose(); 
+	}
+
+	$scope.collapseCompose = function() {
+		PostMessageService.gesture.collapseCompose();
+	}
+	
+	$scope.setTitleCompose = function(title) {
+		PostMessageService.gesture.setTitle(title);
+	}
 }]);
