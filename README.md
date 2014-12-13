@@ -1,6 +1,7 @@
 angularExtensionTemplate
 ========================
-Chrome extension template with angular inside
+Chrome extension template with angular inside.
+a custom html gadget that inject an iframe with angular app inside
 
 <h3>Content script</h3>
 
@@ -77,7 +78,7 @@ app.controller('MainCtrl',  ["$scope", "PostMessageService", function($scope, Po
 	}
 ```
 
-<label>Create your services to make ajax! </label>
+<h3>Create your services to make ajax! </h3>
 
 add new js file in js/services and include it in background.html before vendor inclusion
 
