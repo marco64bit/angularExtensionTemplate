@@ -19,7 +19,7 @@ Chrome extension template with angular inside
   		<li>Gesture: set compose title</li>
   		<li>Gesture: close compose</li>
   		<li>Gesture: collapse compose</li>
-  		<li>Gesture: cahnge header compose background color</li>
+  		<li>Gesture: change header compose background color</li>
   	</ul>
   <li>Example controller and data binding</li>
 </ul>
