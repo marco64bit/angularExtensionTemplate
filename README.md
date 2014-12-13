@@ -14,6 +14,13 @@ Chrome extension template with angular inside
 <ul>
   <li>Bootstrap 3.0</li>
   <li><strong>Angular PostMEssage service: </strong> allow to ajax requests through the background page with asyncronous callback to Angular app</li>
+  <li><strong>Angular PostMEssage service: </strong> give you some customizable gesture to interact with compose and with web page </li>
+  	<ul>
+  		<li>Gesture: set compose title</li>
+  		<li>Gesture: close compose</li>
+  		<li>Gesture: collapse compose</li>
+  		<li>Gesture: cahnge header compose background color</li>
+  	</ul>
   <li>Example controller and data binding</li>
 </ul>
 </li>
@@ -34,7 +41,7 @@ A simple popup html plain scaffolding example
 
 <h3>Ajax example interaction</h3>
 <label>anuglar controller </label>
-<pre>
+```js
 app.controller('MainCtrl',  ["$scope", "PostMessageService", function($scope, PostMessageService) {
 
 	PostMessageService.init("myport"); // comunication port used with background page for message passing
@@ -49,36 +56,33 @@ app.controller('MainCtrl',  ["$scope", "PostMessageService", function($scope, Po
 
 }]);
 
-</pre>
+```
 
-<label>background page </label>
+<h3>Gesture example interaction</h3>
+```js
+	$scope.closeCompose = function() {
+		PostMessageService.gesture.closeCompose(); 
+	}
 
-<pre>
-function exampleService(request, successId, errorId) {
-	console.log("request: ", request);
-	ajaxCallFunction("serverApIUrl", function(){
-		success({"utente": "marco" + successId}, successId);
-	},
-	function(){
-	  error({"errorMessage":"resource not found"}, errorId);
-	})
-}
-</pre>
+	$scope.collapseCompose = function() {
+		PostMessageService.gesture.collapseCompose();
+	}
+	
+	$scope.setTitleCompose = function(title) {
+		PostMessageService.gesture.setTitle(title);
+	}
 
-- success and error is 2 function that send to content script the callback<br>
-- exampleService is mapped in SERVICES object
+	$scope.changeHeaderColor = function() {
+		PostMessageService.gesture.setHeaderColor("crimson");
+	}
+```
 
-<pre>
-var SERVICES = {
-	"exampleService": exampleService
-}
-</pre>
-and it automatically called when angular app call it by name
-<br>
-<h3>add a service in background </h3>
+<label>Create your services to make ajax! </label>
 
-create new function with this structure
-<pre>
+add new js file in js/services and include it in background.html before vendor inclusion
+
+exampleService.js
+```js
 function my_service_name (request, successId, errorId){
   // code here
   //  for success callback
@@ -87,13 +91,30 @@ function my_service_name (request, successId, errorId){
   // for error callback
   error(my_result, errorId);
 }
-</pre>
+```
 
-add  "my_service_name" to SERVICES object
+background.html
+```html
+	<html>
+	<head>
+		<!-- services -->
+		<script src="js/services/my_service_name.js"></script>
+	
+		<!-- vendor -->
+		<script src="js/serviceMap.js"></script>
+		<script src="js/background.js"></script>
+	</head>
+	</html>
+```
 
-<pre>
-var SERVICES = {
- my_service_name,
- ...
+- successCTS and errorCTS is 2 function that send to content script the callback<br>
+- exampleService is mapped in serviceMap.js file
+
+```js
+SERVICE_MAP = {
+	"my_service_name": my_service_name,
+	...
 }
-</pre>
+
+```
+and it automatically called when angular app call it by name
