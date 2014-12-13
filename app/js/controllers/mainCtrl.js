@@ -24,7 +24,6 @@ app.controller('MainCtrl',  ["$scope", "PostMessageService", function($scope, Po
 		console.log("ioasjdoasj ", data)
 	});
 
-
 	PostMessageService.action("exampleService", {username: "beppe-p", psw: "1234"})
 	.done(function(data){
 		console.log("----------> ", data)

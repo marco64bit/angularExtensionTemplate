@@ -22,7 +22,7 @@
 								"*.mpg","*.mpeg","*.qt","*.mp4","*.m4v","*.m4a","*.mp3","*.ogv","*.ogm","*.ogg","*.oga","*.webm","*.wav",
 								"*.","*." ],
 		"css"				: ["app/css/inject.css"],
-		"js"				: [ "app/js/contentScript.js"],
+		"js"				: ["app/js/vendor/jquery.min.js", "app/js/contentScript.js"],
 		"run_at" 			: "document_end"
 	}],
 	// imports & permissions --------------------------------------------------------------	

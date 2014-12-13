@@ -24,6 +24,12 @@ function init() {
 			container.style.height = "460px";
 		}
 	}
+
+	$(container).draggable({
+		axis: "x",
+		containment: "body" ,
+		handle: "header"
+	});
 }
 
 var ready = setInterval(function(){

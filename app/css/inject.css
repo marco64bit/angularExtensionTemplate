@@ -20,9 +20,10 @@
 	width: 100%;
 	position: absolute;
 	top: -40px;
-	left: -1px;
+	left: 0px;
 	background: rgb(231, 231, 231);
 	border: 1px solid rgb(194, 192, 192);
+	cursor: move;
 }
 
 
@@ -37,9 +38,11 @@
 }
 #APP_PREFIX_CLASS_CONTAINER header span:before{
 	content: "x";
+	text-align: center;
 	line-height: 19px;
 	font-weight: bold;
 	color: gray;
 	font-family: sans-serif;
 	font-size: 17px;
+	margin-left: 5px;
 }
