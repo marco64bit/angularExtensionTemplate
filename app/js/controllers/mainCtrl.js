@@ -43,4 +43,8 @@ app.controller('MainCtrl',  ["$scope", "PostMessageService", function($scope, Po
 	$scope.setTitleCompose = function(title) {
 		PostMessageService.gesture.setTitle(title);
 	}
+
+	$scope.changeHeaderColor = function() {
+		PostMessageService.gesture.setHeaderColor("crimson");
+	}
 }]);

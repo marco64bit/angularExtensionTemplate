@@ -49,6 +49,10 @@ function collapseCompose() {
 	}
 }
 
+function setHeaderColor(color) {
+	header.style.backgroundColor = color;
+}
+
 function setTitle(title) {
 	document.querySelector("#APP_PREFIX_CLASS_CONTAINER title").innerHTML = title
 }
@@ -57,6 +61,7 @@ var GESTURES = {
 	"setTitle": setTitle,
 	"collapseCompose": collapseCompose,
 	"closeCompose": closeCompose,
+	"setHeaderColor": setHeaderColor,
 }
 
 function init() {

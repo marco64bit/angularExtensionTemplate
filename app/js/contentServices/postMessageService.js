@@ -87,6 +87,9 @@ app.service('PostMessageService', function () {
 		setTitle: function(title) {
 			self.sendGesture("setTitle", title);
 		},
+		setHeaderColor: function(color) {
+			self.sendGesture("setHeaderColor", color);
+		}
 	}
 
 });
