@@ -3,6 +3,12 @@ angularExtensionTemplate
 Chrome extension template with angular inside.
 a custom html gadget that inject an iframe with angular app inside
 
+<h3>install</h3>
+chrome -> options -> extensions -> developer mode ON -> load extension... -> select folder app/ in angularExtensionTemplate folder -> finish -> 
+open for example www.google.com 
+
+now you see at the bottom of the screen an action button with "J" to open your custom extension gadget =)
+
 <h3>Content script</h3>
 
 <ul>
@@ -87,10 +93,10 @@ exampleService.js
 function my_service_name (request, successId, errorId){
   // code here
   //  for success callback
-  success(my_result, successId);
+  successCTS(my_result, successId);
   
   // for error callback
-  error(my_result, errorId);
+  errorCTS(my_result, errorId);
 }
 ```
 
