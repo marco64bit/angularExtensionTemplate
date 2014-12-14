@@ -1,6 +1,6 @@
 angularExtensionTemplate
 ========================
-Chrome extension template with angular inside.
+Chrome extension template with angular inside,
 a custom html gadget that inject an iframe with angular app inside
 
 <h3>install</h3>
@@ -116,7 +116,7 @@ background.html
 	</html>
 ```
 
-- successCTS and errorCTS is 2 function that send to content script the callback<br>
+- successCTS and errorCTS are two functions that send to content script the callback<br>
 - exampleService is mapped in serviceMap.js file
 
 ```js
