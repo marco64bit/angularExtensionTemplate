@@ -4,7 +4,7 @@ function exampleService(request, successId, errorId) {
 	console.log("request: ", request);
 	setTimeout(function(){
 		new Notification('Angular loaded notification', {
-			icon: 'img/icon.png',
+			icon: '../../icon.png',
 			body: 'Boom baby!'
 		});
 		successCTS({"utente": "marco" + successId}, successId);

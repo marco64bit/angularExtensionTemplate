@@ -18,20 +18,21 @@ headerContainer.setAttribute("class", "header-container")
 close.setAttribute("class", "close")
 collapse.setAttribute("class", "collapse")
 
-iframe.setAttribute("src", chrome.extension.getURL("app/index.html"))
+iframe.setAttribute("src", chrome.extension.getURL("contentScript/app/index.html"))
 iframe.setAttribute("width", "100%")
 iframe.setAttribute("height", "100%")
 
 headerContainer.appendChild(title)
-headerContainer.appendChild(close)
-headerContainer.appendChild(collapse)
+if(Config.close) {
+	headerContainer.appendChild(close)
+}
+if(Config.collapse) {
+	headerContainer.appendChild(collapse)
+}
 header.appendChild(headerContainer)
 
 container.appendChild(header)
 container.appendChild(iframe)
-
-//selector button inject
-var SELECTOR = "body"
 
 function closeCompose() {
 	container.style.display = "none"
@@ -66,8 +67,8 @@ var GESTURES = {
 
 function init() {
 	buttonReady = setInterval(function(){
-		if(document.querySelector(SELECTOR).appendChild){
-			document.querySelector(SELECTOR).appendChild(openComposeButton)
+		if(document.querySelector(Config.actionButtonSelector).appendChild){
+			document.querySelector(Config.actionButtonSelector).appendChild(openComposeButton)
 			openComposeButton.onclick = openCompose
 			clearInterval(buttonReady)
 		}
@@ -77,11 +78,13 @@ function init() {
 
 	close.onclick = closeCompose
 
-	$(container).draggable({
-		axis: "x",
-		containment: "body",
-		handle: "header"
-	});
+	if(Config.draggable) {
+		$(container).draggable({
+			axis: "x",
+			containment: "body",
+			handle: "header"
+		});
+	}
 
 	chrome.runtime.onMessage.addListener(function(msg) {
 		if(msg.gesture && msg.gesture in GESTURES) {
